@@ -46,14 +46,22 @@ app.get('/', function (req,res) {
 });
 //#endregion
 
+//#region bmiCalculator page("/bmiCalculator")
 app.get("/bmiCalculator", function (req,res) {
     res.sendFile(__dirname + "/bmiCalculator.html")
 });
 
-app.post("/bmiCalculator", function (req,res) {
+    app.post("/bmiCalculator", function (req, res) {
     let weight = Number(req.body.weightBox);
     let height = Number(req.body.heightBox);
-    let resultBMI = weight / (height ** 2)
+    let resultBMI = (weight / ((height * height) / 10000)).toFixed(2);
 
-    res.send("check!");
+    if(resultBMI < 18.6){
+        res.send("your bmi is " + resultBMI + " and you are Under Weight");
+    } else if(resultBMI >= 18.6 && resultBMI < 24.9){
+        res.send("your bmi is " + resultBMI + " and you are Normal");
+    } else if(resultBMI > 18.6){
+        res.send("your bmi is " + resultBMI + " and you are Over Weight");
+    }
 });
+//#endregion
