@@ -45,3 +45,15 @@ app.get('/', function (req,res) {
     res.sendFile(__dirname + "/index.html")
 });
 //#endregion
+
+app.get("/bmiCalculator", function (req,res) {
+    res.sendFile(__dirname + "/bmiCalculator.html")
+});
+
+app.post("/bmiCalculator", function (req,res) {
+    let weight = Number(req.body.weightBox);
+    let height = Number(req.body.heightBox);
+    let resultBMI = weight / (height ** 2)
+
+    res.send("check!");
+});
