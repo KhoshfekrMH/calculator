@@ -5,13 +5,20 @@
     <title>Node.js Calculator</title>
 </head>
 <body>
+
 <h1>Calculator</h1>
 <form action="index.html" method="post">
     <label for="num1box">First Number : </label>
     <input id = "num1box" type="text" name="num1">
     <label for="num2box"> Second Number : </label>
     <input id = "num2box" type="text" name="num2">
-    <br>
+    <label for="opt">Operation : </label>
+    <select name="opt" id="opt">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
     <button type="submit" name="submit">Calculator</button>
 </form>
 
