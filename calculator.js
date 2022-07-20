@@ -11,6 +11,7 @@ app.listen(port, function () {
     console.log("server is running on port 3000");
 });
 
+//#region root page("/")
 app.post("/", function (req,res) {
     let num1 = Number(req.body.num1);
     let num2 = Number(req.body.num2);
@@ -43,3 +44,4 @@ app.post("/", function (req,res) {
 app.get('/', function (req,res) {
     res.sendFile(__dirname + "/index.html")
 });
+//#endregion
